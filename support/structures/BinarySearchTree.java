@@ -1,7 +1,5 @@
 package structures;
 
-import java.util.Iterator;
-
 /**
  * <p>
  * A {@link BinarySearchTree} is a container that maintains an internal state
@@ -104,25 +102,4 @@ public interface BinarySearchTree<T extends Comparable<? super T>> extends
 	 *             if this {@link BinarySearchTree} is empty.
 	 */
 	BinaryTreeNode<T> toBinaryTreeNode();
-
-	/**
-	 * <p>
-	 * Returns a new {@link Iterator} that will traverse this tree in-order.
-	 * </p>
-	 * <p>
-	 * The remove method of the returned {@link Iterator} is not supported and
-	 * any call to it will result in an {@link UnsupportedOperationException}.
-	 * </p>
-	 * <p>
-	 * This method is guaranteed to return in O(1) time. That is, it should not
-	 * compute the entire order of traversal ahead of time.
-	 * </p>
-	 * <p>
-	 * If the data in the underlying {@link BinaryTreeNode} or its children is
-	 * modified, using the {@link Iterator} is unknown.
-	 * </p>
-	 * 
-	 * @return a new {@link Iterator} that will traverse this tree in-order.
-	 */
-	Iterator<T> iterator();
 }

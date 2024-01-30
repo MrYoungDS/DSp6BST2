@@ -1,7 +1,7 @@
-# <code>DSp6BST</code> Binary Search Tree Assignment
+# <code>DSp6BST2</code> Binary Search Tree Assignment Part 2
 
 ## Overview
-For this assignment you will be implementing the Binary Search Tree ADT and a number of associated functions.
+For this assignment you will be implementing the core of the Binary Search Tree ADT.
 This project is based on the content of chapters 9 and 10 in the Java Software Structures book.
 
 ### Table of Contents
@@ -15,9 +15,8 @@ This project is based on the content of chapters 9 and 10 in the Java Software S
 
 
 ## Files to complete
-You are expected to write an implementation for each of the interfaces listed in the `Configuration` class:
-`BinaryTreeNode`, `BinaryTreeUtility`, and `BinarySearchTree`. Update the methods in `Configuration.java`
-as these implementation are completed.
+You are expected to write an implementation for the `BinarySearchTree` interface in the `Configuration` class.
+You can use your implementation of the `BinaryTreeNode` interface from part 1.
 
 ### Test files
 In the test folder, you are provided with several JUnit test cases that will help you keep on track while completing
@@ -36,37 +35,19 @@ When you clone / download your project from GitHub Classroom, you will want to e
 If you are missing any of the above or errors are present in the project, seek help immediately, so you can get started.
 
 
-## Part Two: Implement the BinaryTreeNode Interface
-A `BinaryTreeNode` represents a node in a binary tree. It stores data of generic type `T` and may have a right and a left child, each a reference to another `BinaryTreeNode`.  The `BinaryTreeNode` interface includes standard getters and setters for a `BinaryTreeNode`’s right and left children as well as its data.
+## Part Two: Copy the BinaryTreeNode Interface
+Use your `BinaryTreeNode` implementation from part 1 and update the `Configuration` file.
 
-## Part Three: Implement the BinaryTreeUtility Interface
-The `BinaryTreeUtility` interface provides basic functions for working with a binary tree.
+## Part Three: Implement the BinarySearchTree Interface
+The `BinarySearchTree` interface provides basic functions for implementing a binary search tree.
 
-**Depth** -- The depth of the tree is the maximum level of any leaf node in the tree.  Recall that the level of a node begins at zero for the root of a tree with no children.  A child of the root is at level 1.
+**Transformers** -- Add and remove are the main transformers of a BST.  These must add or remove elements
+while maintaining the BST property.
 
-**Balance** -- The balance of a tree measures how close it is to a full or complete tree.  You will implement the method `isBalanced(BinaryTreeNode<T> root, int tolerance)` which determines whether the maximum difference in the depth of any two children is no larger than the given tolerance value.
-
-**Testing the BST property** -- Recall that a BST is a binary tree that also satisfies a special sorting property: if all elements in left subtree of any node X are less than or equal to node X and all nodes in the right subtree of X are greater than X.  You will write a function `isBST(root)` which returns true if `root` is the root of a valid binary search tree.  Your function need not explicitly test basic requirements of the binary tree (e.g. that there is a unique path from the root to every node in the tree).  Testing the BST property has a nice recursive solution, but it requires some thought.
-
-**Iterators** -- You will also provide three methods `getPreOrderIterator(BinaryTreeNode<T> root)`, `getInOrderIterator(BinaryTreeNode<T> root)`, `getPostOrderIterator(BinaryTreeNode<T> root)`, each returning an iterator that follows the stated traversal over a binary tree. A `PreOrderIterator` class has been provided as an example to get started.
-
-**Feeling ambitious?**<br>
-See if you can make a Level-Order iterator!
+**Observers** -- You will implement an `isEmpty()` method and a `size()` method.  In addition,
+you will implement the `getMinimum()` and `getMaximum()` functions, which return the smallest
+and largest values stored in the BST.
 
 
-## Part Four: Implement the BinarySearchTree Interface
-Next you will implement methods underlying the BST structure.  
-
-**Transformers** -- Add and remove are the main transformers of a BST.  These must add or remove elements while maintaining the BST property.
-
-**Observers** -- You will implement an `isEmpty()` method and a `size()` method.  In addition, you will implement  the `getMinimum()` and `getMaximum()` functions, which return the smallest and largest values stored in the BST.  
-
-**Iterator** -- This function returns an iterator that supports in-order access to the nodes of the BST.  Recall that an in-order traversal of a BST results in a sorted order due to the BST property.  
-
-**Bonus** The method returning an iterator should complete in O(1) time, so it should not compute the entire sequential order ahead of time.
-
-If you choose to implement an iterator method that returns in O(1) time, you will receive extra credit. This means you should not compute the traversal in its entirety when creating and returning the iterator.  Instead, the iterator should be initialized and returned as a result of the function call, with the next element in the traversal computed with each call to `next()`.
-
-
-## Part Five: Commit Project and Submit Pull Request
+## Part Four: Commit Project and Submit Pull Request
 When you have finished your solution and are ready to submit, make your final commit and push everything up to GitHub.
