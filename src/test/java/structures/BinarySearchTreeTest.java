@@ -11,12 +11,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import config.Configuration;
 
@@ -26,7 +26,7 @@ public class BinarySearchTreeTest {
     private static final int SPEED_TEST = 1 << 3;
 
     @BeforeEach
-    public void setUp() throws Exception {
+    public void setUp() {
         tree = Configuration.createBinarySearchTree();
         assertNotNull(tree, "It looks like you did not set createBinarySearchTree in your configuration file.");
     }
@@ -61,7 +61,7 @@ public class BinarySearchTreeTest {
     }
 
     @Test
-    @Timeout(1)
+    @Timeout(value = 1000, unit = TimeUnit.MILLISECONDS)
     public void testRandomAddContains() {
         Random r = new Random(42);
         Set<Integer> valuesAdded = new HashSet<>();
@@ -115,7 +115,7 @@ public class BinarySearchTreeTest {
     }
 
     @Test
-    @Timeout(1)
+    @Timeout(value = 1000, unit = TimeUnit.MILLISECONDS)
     public void testRandomAddRemoveAndSize() {
         Random r = new Random(42);
         List<Integer> valuesAdded = new LinkedList<>();
@@ -143,7 +143,7 @@ public class BinarySearchTreeTest {
     }
 
     @Test
-    @Timeout(1)
+    @Timeout(value = 1000, unit = TimeUnit.MILLISECONDS)
     public void testRandomGetMinAndGetMax() {
         Random r = new Random(42);
         LinkedList<Integer> values = new LinkedList<>();
@@ -171,41 +171,5 @@ public class BinarySearchTreeTest {
     public void testIllegalStateGetMax(){
         assertThrows(IllegalStateException.class,
                 () -> tree.getMaximum());
-    }
-
-    @Test
-    public void testSimpleIterable(){
-        tree.add(4).add(2).add(1).add(3).add(5).add(6).add(7);
-        LinkedList<Integer> values = new LinkedList<>();
-        values.add(1);
-        values.add(2);
-        values.add(3);
-        values.add(4);
-        values.add(5);
-        values.add(6);
-        values.add(7);
-        for(Integer i : tree){
-            Integer toCheck = values.remove();
-            assertEquals(toCheck, i);
-        }
-    }
-
-    @Test
-    public void testRandomIterator() {
-        Random r = new Random(42);
-        LinkedList<Integer> values = new LinkedList<>();
-
-        for(int i = 0; i < SPEED_TEST; i++){
-            int next = r.nextInt();
-            values.add(next);
-            tree.add(next);
-        }
-
-        Collections.sort(values);
-
-        for(Integer i : tree){
-            Integer toCheck = values.remove();
-            assertEquals(toCheck, i);
-        }
     }
 }

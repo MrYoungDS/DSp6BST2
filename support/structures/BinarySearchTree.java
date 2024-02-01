@@ -5,22 +5,22 @@ package structures;
  * A {@link BinarySearchTree} is a container that maintains an internal state
  * consistent with a Binary Search Tree.
  * </p>
- *
  * @param <T>
  *            the type of data stored in this {@link BinarySearchTree}
  * @author jcollard jddevaug
  */
-public interface BinarySearchTree<T extends Comparable<? super T>> extends
-		Iterable<T> {
-
+public interface BinarySearchTree<T extends Comparable<? super T>> {
 	/**
 	 * Adds {@code toAdd} to this {@link BinarySearchTree}. For convenience,
 	 * this method returns the modified {@link BinarySearchTree}. This method
 	 * runs in O(size) time. However, if this {@link BinarySearchTree} is
 	 * balanced, this method runs in O(log(size)) time.
-	 * A successful call to this method will always result in size increasing by
-	 * one.
-	 * 
+	 * A successful call to this method will always result in size increasing by one.
+	 * For simplicity, you can suppose that a duplicate value being added to the tree
+	 * should head to the left, that is, the right child will have a strictly greater
+	 * value, and the left child will have a less-than-or-equal-to value in any node
+	 * of the BST (which is consistent with the <code>isBST</code> test in the
+	 * <code>BinaryTreeUtility</code> class from Part 1).
 	 * @param toAdd
 	 *            the element to add to this {@link BinarySearchTree}
 	 * @return For convenience, this method returns the modified
@@ -36,7 +36,6 @@ public interface BinarySearchTree<T extends Comparable<? super T>> extends
 	 * {@link BinarySearchTree} and {@code false} otherwise. This method
 	 * runs in O(size) time. However, if this {@link BinarySearchTree} is balanced,
 	 * this method runs in O(log(size)) time.
-	 * 
 	 * @param toFind
 	 *            the element to search for
 	 * @return {@code true} if there is an instance of {@code toFind} in this
@@ -52,7 +51,6 @@ public interface BinarySearchTree<T extends Comparable<? super T>> extends
 	 * and {@code false} otherwise. This method runs in O(size) time. However,
 	 * if this {@link BinarySearchTree} is balanced, this method runs in
 	 * O(log(size)) time.
-	 * 
 	 * @param toRemove
 	 *            the element to be removed
 	 * @return {@code true} if this {@link BinarySearchTree} was modified and
@@ -89,17 +87,4 @@ public interface BinarySearchTree<T extends Comparable<? super T>> extends
 	 *             if this {@link BinarySearchTree} is empty.
 	 */
 	T getMaximum();
-
-	/**
-	 * Returns a {@link BinaryTreeNode} that is consistent with the internal
-	 * shape of this {@link BinarySearchTree}. If changes to the this {@link BinarySearchTree}
-	 * are made after a call to this method, using the returned {@link BinaryTreeNode} is
-	 * undefined.
-	 * 
-	 * @return a {@link BinaryTreeNode} that is consistent with the shape of
-	 *         this {@link BinarySearchTree}.
-	 * @throws IllegalStateException
-	 *             if this {@link BinarySearchTree} is empty.
-	 */
-	BinaryTreeNode<T> toBinaryTreeNode();
 }

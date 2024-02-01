@@ -6,12 +6,11 @@ This project is based on the content of chapters 9 and 10 in the Java Software S
 
 ### Table of Contents
 **[Files to complete](#files-to-complete)**<br>
-**[Support Code API](#support-code-api)**<br>
+**[Test files](#test-files)**<br>
 **[Part One: Import Project](#part-one-import-project)**<br>
-**[Part Two: Implement the BinaryTreeNode Interface](#part-two-implement-the-binarytreenode-interface)**<br>
-**[Part Three: Implement the BinaryTreeUtility Interface](#part-three-implement-the-binarytreeutility-interface)**<br>
-**[Part Four: Implement the BinarySearchTree Interface](#part-four-implement-the-binarysearchtree-interface)**<br>
-**[Part Five: Commit Project and Submit Pull Request](#part-five-commit-project-and-submit-pull-request)**
+**[Part Two: Copy the BinaryTreeNode Interface](#part-two-copy-the-binarytreenode-interface)**<br>
+**[Part Three: Implement the BinarySearchTree Interface](#part-three-implement-the-binarysearchtree-interface)**<br>
+**[Part Four: Commit Project and Submit Pull Request](#part-four-commit-project-and-submit-pull-request)**
 
 
 ## Files to complete
