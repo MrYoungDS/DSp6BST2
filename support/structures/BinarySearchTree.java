@@ -87,4 +87,12 @@ public interface BinarySearchTree<T extends Comparable<? super T>> {
 	 *             if this {@link BinarySearchTree} is empty.
 	 */
 	T getMaximum();
+
+	/**
+	 * Returns the root {@link BinaryTreeNode} in this {@link BinarySearchTree}.
+	 * @return the root {@link BinaryTreeNode} in this {@link BinarySearchTree}.
+	 * @throws IllegalStateException
+	 *             if this {@link BinarySearchTree} is empty.
+	 */
+	BinaryTreeNode<T> getRoot();
 }

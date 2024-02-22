@@ -14,7 +14,7 @@ public class Configuration {
         return null;
     }
 
-    public static BinarySearchTree createBinarySearchTree(){
+    public static <T extends Comparable<? super T>> BinarySearchTree<T> createBinarySearchTree(){
         return null;
     }
 }
